@@ -4,6 +4,8 @@
 
 It helps you write a plain text description file that can be used by ibus to install a new keyboard layout.
 
+It is written in [Lazarus](https://www.lazarus-ide.org/) using only standard components.
+
 The program: 
 
 ![ibustablelayouteditor screenshot](https://oderalon.net/wiki/images/a/a4/ibustablelayouteditor_screenshot.png)
