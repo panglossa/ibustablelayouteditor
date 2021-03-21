@@ -19,27 +19,93 @@ object frmMain: TfrmMain
     TabOrder = 0
     object sgSTable: TStringGrid
       Left = 0
-      Height = 352
-      Top = 0
+      Height = 306
+      Top = 46
       Width = 365
       Align = alClient
-      ColCount = 3
+      ColCount = 2
       FixedCols = 0
-      Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goEditing, goAutoAddRows, goTabs, goSmoothScroll]
+      Font.Height = -16
+      Font.Name = 'Sans'
+      Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goRowMoving, goEditing, goAutoAddRows, goTabs, goAlwaysShowEditor, goSmoothScroll]
+      ParentFont = False
       RowCount = 2
       TabOrder = 0
+      TitleFont.Height = -16
+      TitleFont.Name = 'Sans'
+      OnEditingDone = sgSTableEditingDone
+      ColWidths = (
+        169
+        195
+      )
       Cells = (
-        3
+        2
         0
         0
         'input'
         1
         0
         'result'
-        2
-        0
-        'priority'
       )
+    end
+    object gbFont: TGroupBox
+      Left = 0
+      Height = 46
+      Top = 0
+      Width = 365
+      Align = alTop
+      AutoSize = True
+      Caption = 'Font'
+      ClientHeight = 27
+      ClientWidth = 361
+      TabOrder = 1
+      object cbFontName: TComboBox
+        Left = 0
+        Height = 27
+        Top = 0
+        Width = 248
+        Align = alClient
+        ItemHeight = 0
+        OnChange = cbFontNameChange
+        Style = csDropDownList
+        TabOrder = 0
+      end
+      object txtFontSize: TSpinEdit
+        Left = 248
+        Height = 27
+        Top = 0
+        Width = 50
+        Align = alRight
+        MaxValue = 250
+        MinValue = 1
+        OnChange = txtFontSizeChange
+        TabOrder = 1
+        Value = 14
+      end
+      object cbBold: TCheckBox
+        Left = 298
+        Height = 27
+        Top = 0
+        Width = 35
+        Align = alRight
+        Caption = 'B '
+        Font.Style = [fsBold]
+        OnChange = cbBoldChange
+        ParentFont = False
+        TabOrder = 2
+      end
+      object cbItalic: TCheckBox
+        Left = 333
+        Height = 27
+        Top = 0
+        Width = 28
+        Align = alRight
+        Caption = 'I '
+        Font.Style = [fsItalic]
+        OnChange = cbItalicChange
+        ParentFont = False
+        TabOrder = 3
+      end
     end
   end
   object Panel1: TPanel
@@ -68,6 +134,7 @@ object frmMain: TfrmMain
         Top = 0
         Width = 393
         Align = alClient
+        OnChange = txtNameChange
         TabOrder = 0
       end
     end
@@ -88,6 +155,7 @@ object frmMain: TfrmMain
         Top = 0
         Width = 327
         Align = alClient
+        OnChange = txtUIDChange
         TabOrder = 0
       end
       object btnGenerateUID: TButton
@@ -119,6 +187,7 @@ object frmMain: TfrmMain
         Top = 0
         Width = 327
         Align = alClient
+        OnChange = txtSerialNumberChange
         TabOrder = 0
       end
       object btnGenerateSerialNumber: TButton
@@ -150,6 +219,7 @@ object frmMain: TfrmMain
         Top = 0
         Width = 393
         Align = alClient
+        OnChange = txtSymbolChange
         TabOrder = 0
       end
     end
@@ -170,6 +240,7 @@ object frmMain: TfrmMain
         Top = 0
         Width = 393
         Align = alClient
+        OnChange = txtStatusPromptChange
         TabOrder = 0
       end
     end
@@ -220,6 +291,7 @@ object frmMain: TfrmMain
           Lines.Strings = (
             '''"1!¹2@²3#³4$£5%¢6¨¬7&8*9(0)-_=+§qQwWeE€rRtTyYuUiIoOpP''`[{ªaAsSdDfFgGhHjJkKlLçÇ~^]}º\|zZxXcCvVbBnNmM,<.>;:/?°'
           )
+          OnChange = txtValidCharsChange
           ScrollBars = ssAutoBoth
           TabOrder = 0
         end
@@ -242,6 +314,7 @@ object frmMain: TfrmMain
         Top = 0
         Width = 393
         Align = alClient
+        OnChange = txtLanguagesChange
         TabOrder = 0
       end
     end
@@ -266,6 +339,7 @@ object frmMain: TfrmMain
         Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goAutoAddRows, goSmoothScroll]
         RowCount = 25
         TabOrder = 0
+        OnEditingDone = sgOtherValuesEditingDone
         ColWidths = (
           189
           193
